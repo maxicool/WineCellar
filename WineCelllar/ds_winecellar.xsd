@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_winecellar" targetNamespace="http://tempuri.org/ds_winecellar.xsd" xmlns:mstns="http://tempuri.org/ds_winecellar.xsd" xmlns="http://tempuri.org/ds_winecellar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_winecellar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_winecellar" msprop:Generator_UserDSName="ds_winecellar">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_winecellar" msprop:Generator_TableClassName="tb_winecellarDataTable" msprop:Generator_TableVarName="tabletb_winecellar" msprop:Generator_TablePropName="tb_winecellar" msprop:Generator_RowDeletingName="tb_winecellarRowDeleting" msprop:Generator_RowChangingName="tb_winecellarRowChanging" msprop:Generator_RowEvHandlerName="tb_winecellarRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_winecellarRowDeleted" msprop:Generator_UserTableName="tb_winecellar" msprop:Generator_RowChangedName="tb_winecellarRowChanged" msprop:Generator_RowEvArgName="tb_winecellarRowChangeEvent" msprop:Generator_RowClassName="tb_winecellarRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="wine_id" msprop:Generator_ColumnVarNameInTable="columnwine_id" msprop:Generator_ColumnPropNameInRow="wine_id" msprop:Generator_ColumnPropNameInTable="wine_idColumn" msprop:Generator_UserColumnName="wine_id" type="xs:int" minOccurs="0" />
+              <xs:element name="cellar_id" msprop:Generator_ColumnVarNameInTable="columncellar_id" msprop:Generator_ColumnPropNameInRow="cellar_id" msprop:Generator_ColumnPropNameInTable="cellar_idColumn" msprop:Generator_UserColumnName="cellar_id" type="xs:int" minOccurs="0" />
+              <xs:element name="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_UserColumnName="quantity" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -51,6 +51,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -72,11 +73,39 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="ds_cellar.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cellar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ds_wine.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_wine.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ds_winecellar.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_winecellar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ds_winecellar.vb">
+      <DependentUpon>ds_winecellar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frm_winecellar.vb" />
+    <Compile Include="frm_winecellar.Designer.vb">
+      <DependentUpon>frm_winecellar.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frm_cellar.Designer.vb">
+      <DependentUpon>frm_cellar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cellar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_wine.Designer.vb">
+      <DependentUpon>frm_wine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_wine.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -96,6 +125,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_winecellar.resx">
+      <DependentUpon>frm_winecellar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cellar.resx">
+      <DependentUpon>frm_cellar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_wine.resx">
+      <DependentUpon>frm_wine.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -104,6 +142,39 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ds_cellar.xsc">
+      <DependentUpon>ds_cellar.xsd</DependentUpon>
+    </None>
+    <None Include="ds_cellar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cellar.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ds_cellar.xss">
+      <DependentUpon>ds_cellar.xsd</DependentUpon>
+    </None>
+    <None Include="ds_wine.xsc">
+      <DependentUpon>ds_wine.xsd</DependentUpon>
+    </None>
+    <None Include="ds_wine.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_wine.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ds_wine.xss">
+      <DependentUpon>ds_wine.xsd</DependentUpon>
+    </None>
+    <None Include="ds_winecellar.xsc">
+      <DependentUpon>ds_winecellar.xsd</DependentUpon>
+    </None>
+    <None Include="ds_winecellar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_winecellar.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ds_winecellar.xss">
+      <DependentUpon>ds_winecellar.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
