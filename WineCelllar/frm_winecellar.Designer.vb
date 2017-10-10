@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frm_cellar
+Partial Class frm_winecellar
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,10 +23,12 @@ Partial Class frm_cellar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_cellar))
-        Me.Ds_cellar = New WineCelllar.ds_cellar()
-        Me.Tb_cellarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tb_cellarBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_winecellar))
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Ds_winecellar = New WineCelllar.ds_winecellar()
+        Me.Tb_winecellarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tb_winecellarBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
@@ -38,45 +40,64 @@ Partial Class frm_cellar
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Tb_cellarBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.Tb_cellarDataGridView = New System.Windows.Forms.DataGridView()
+        Me.Tb_winecellarBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.Tb_winecellarDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.Ds_cellar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Tb_cellarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Tb_cellarBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Tb_cellarBindingNavigator.SuspendLayout()
-        CType(Me.Tb_cellarDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.Ds_winecellar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_winecellarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_winecellarBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Tb_winecellarBindingNavigator.SuspendLayout()
+        CType(Me.Tb_winecellarDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Ds_cellar
+        'Button1
         '
-        Me.Ds_cellar.DataSetName = "ds_cellar"
-        Me.Ds_cellar.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Button1.Location = New System.Drawing.Point(12, 214)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Tb_cellarBindingSource
+        'Button2
         '
-        Me.Tb_cellarBindingSource.DataMember = "tb_cellar"
-        Me.Tb_cellarBindingSource.DataSource = Me.Ds_cellar
+        Me.Button2.Location = New System.Drawing.Point(299, 212)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'Tb_cellarBindingNavigator
+        'Ds_winecellar
         '
-        Me.Tb_cellarBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.Tb_cellarBindingNavigator.BindingSource = Me.Tb_cellarBindingSource
-        Me.Tb_cellarBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.Tb_cellarBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.Tb_cellarBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Tb_cellarBindingNavigatorSaveItem})
-        Me.Tb_cellarBindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.Tb_cellarBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
-        Me.Tb_cellarBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
-        Me.Tb_cellarBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
-        Me.Tb_cellarBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
-        Me.Tb_cellarBindingNavigator.Name = "Tb_cellarBindingNavigator"
-        Me.Tb_cellarBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Tb_cellarBindingNavigator.Size = New System.Drawing.Size(344, 25)
-        Me.Tb_cellarBindingNavigator.TabIndex = 0
-        Me.Tb_cellarBindingNavigator.Text = "BindingNavigator1"
+        Me.Ds_winecellar.DataSetName = "ds_winecellar"
+        Me.Ds_winecellar.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Tb_winecellarBindingSource
+        '
+        Me.Tb_winecellarBindingSource.DataMember = "tb_winecellar"
+        Me.Tb_winecellarBindingSource.DataSource = Me.Ds_winecellar
+        '
+        'Tb_winecellarBindingNavigator
+        '
+        Me.Tb_winecellarBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.Tb_winecellarBindingNavigator.BindingSource = Me.Tb_winecellarBindingSource
+        Me.Tb_winecellarBindingNavigator.CountItem = Me.BindingNavigatorCountItem
+        Me.Tb_winecellarBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.Tb_winecellarBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Tb_winecellarBindingNavigatorSaveItem})
+        Me.Tb_winecellarBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.Tb_winecellarBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.Tb_winecellarBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.Tb_winecellarBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.Tb_winecellarBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.Tb_winecellarBindingNavigator.Name = "Tb_winecellarBindingNavigator"
+        Me.Tb_winecellarBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
+        Me.Tb_winecellarBindingNavigator.Size = New System.Drawing.Size(394, 25)
+        Me.Tb_winecellarBindingNavigator.TabIndex = 2
+        Me.Tb_winecellarBindingNavigator.Text = "BindingNavigator1"
         '
         'BindingNavigatorAddNewItem
         '
@@ -163,67 +184,81 @@ Partial Class frm_cellar
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'Tb_cellarBindingNavigatorSaveItem
+        'Tb_winecellarBindingNavigatorSaveItem
         '
-        Me.Tb_cellarBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Tb_cellarBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tb_cellarBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.Tb_cellarBindingNavigatorSaveItem.Name = "Tb_cellarBindingNavigatorSaveItem"
-        Me.Tb_cellarBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
-        Me.Tb_cellarBindingNavigatorSaveItem.Text = "Save Data"
+        Me.Tb_winecellarBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Tb_winecellarBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tb_winecellarBindingNavigatorSaveItem.Image"), System.Drawing.Image)
+        Me.Tb_winecellarBindingNavigatorSaveItem.Name = "Tb_winecellarBindingNavigatorSaveItem"
+        Me.Tb_winecellarBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
+        Me.Tb_winecellarBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'Tb_cellarDataGridView
+        'Tb_winecellarDataGridView
         '
-        Me.Tb_cellarDataGridView.AutoGenerateColumns = False
-        Me.Tb_cellarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Tb_cellarDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
-        Me.Tb_cellarDataGridView.DataSource = Me.Tb_cellarBindingSource
-        Me.Tb_cellarDataGridView.Location = New System.Drawing.Point(12, 28)
-        Me.Tb_cellarDataGridView.Name = "Tb_cellarDataGridView"
-        Me.Tb_cellarDataGridView.RowTemplate.Height = 23
-        Me.Tb_cellarDataGridView.Size = New System.Drawing.Size(300, 220)
-        Me.Tb_cellarDataGridView.TabIndex = 1
+        Me.Tb_winecellarDataGridView.AutoGenerateColumns = False
+        Me.Tb_winecellarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Tb_winecellarDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.Tb_winecellarDataGridView.DataSource = Me.Tb_winecellarBindingSource
+        Me.Tb_winecellarDataGridView.Location = New System.Drawing.Point(12, 28)
+        Me.Tb_winecellarDataGridView.Name = "Tb_winecellarDataGridView"
+        Me.Tb_winecellarDataGridView.RowTemplate.Height = 23
+        Me.Tb_winecellarDataGridView.Size = New System.Drawing.Size(362, 169)
+        Me.Tb_winecellarDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
         Me.DataGridViewTextBoxColumn1.HeaderText = "id"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn1.Visible = False
         '
         'DataGridViewTextBoxColumn2
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "cellar"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "cellar"
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "wine_id"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "wine_id"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'DataGridViewTextBoxColumn3
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "area"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "area"
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cellar_id"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "cellar_id"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
-        'frm_cellar
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "quantity"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "quantity"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'frm_winecellar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(344, 294)
-        Me.Controls.Add(Me.Tb_cellarDataGridView)
-        Me.Controls.Add(Me.Tb_cellarBindingNavigator)
-        Me.Name = "frm_cellar"
-        Me.Text = "Cellar"
-        CType(Me.Ds_cellar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Tb_cellarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Tb_cellarBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Tb_cellarBindingNavigator.ResumeLayout(False)
-        Me.Tb_cellarBindingNavigator.PerformLayout()
-        CType(Me.Tb_cellarDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ClientSize = New System.Drawing.Size(394, 247)
+        Me.Controls.Add(Me.Tb_winecellarDataGridView)
+        Me.Controls.Add(Me.Tb_winecellarBindingNavigator)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Name = "frm_winecellar"
+        Me.Text = "frm_winecella"
+        CType(Me.Ds_winecellar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_winecellarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_winecellarBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Tb_winecellarBindingNavigator.ResumeLayout(False)
+        Me.Tb_winecellarBindingNavigator.PerformLayout()
+        CType(Me.Tb_winecellarDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Ds_cellar As ds_cellar
-    Friend WithEvents Tb_cellarBindingSource As BindingSource
-    Friend WithEvents Tb_cellarBindingNavigator As BindingNavigator
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Ds_winecellar As ds_winecellar
+    Friend WithEvents Tb_winecellarBindingSource As BindingSource
+    Friend WithEvents Tb_winecellarBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
     Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
@@ -235,9 +270,10 @@ Partial Class frm_cellar
     Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
-    Friend WithEvents Tb_cellarBindingNavigatorSaveItem As ToolStripButton
-    Friend WithEvents Tb_cellarDataGridView As DataGridView
+    Friend WithEvents Tb_winecellarBindingNavigatorSaveItem As ToolStripButton
+    Friend WithEvents Tb_winecellarDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class
