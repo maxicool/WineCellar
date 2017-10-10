@@ -91,18 +91,6 @@
     <Compile Include="ds_winecellar.vb">
       <DependentUpon>ds_winecellar.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frm_cellar.Designer.vb">
-      <DependentUpon>frm_cellar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frm_cellar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_wine.Designer.vb">
-      <DependentUpon>frm_wine.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frm_wine.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frm_winecellar.Designer.vb">
       <DependentUpon>frm_winecellar.vb</DependentUpon>
     </Compile>
@@ -126,12 +114,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frm_cellar.resx">
-      <DependentUpon>frm_cellar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_wine.resx">
-      <DependentUpon>frm_wine.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_winecellar.resx">
       <DependentUpon>frm_winecellar.vb</DependentUpon>
     </EmbeddedResource>

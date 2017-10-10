@@ -39,6 +39,7 @@ Partial Public Class ds_wine
         AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
         AddHandler MyBase.Relations.CollectionChanged, schemaChangedHandler
         Me.EndInit
+        Me.InitExpressions
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -50,6 +51,9 @@ Partial Public Class ds_wine
             Dim schemaChangedHandler1 As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
             AddHandler Me.Tables.CollectionChanged, schemaChangedHandler1
             AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
+            If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.ExcludeSchema) Then
+                Me.InitExpressions
+            End If
             Return
         End If
         Dim strSchema As String = CType(info.GetValue("XmlSchema", GetType(String)),String)
@@ -69,6 +73,7 @@ Partial Public Class ds_wine
             Me.InitVars
         Else
             Me.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
+            Me.InitExpressions
         End If
         Me.GetSerializationData(info, context)
         Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
@@ -130,6 +135,7 @@ Partial Public Class ds_wine
     Public Overrides Function Clone() As Global.System.Data.DataSet
         Dim cln As ds_wine = CType(MyBase.Clone,ds_wine)
         cln.InitVars
+        cln.InitExpressions
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
     End Function
@@ -204,7 +210,7 @@ Partial Public Class ds_wine
         Me.Namespace = "http://tempuri.org/ds_wine.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabletb_wine = New tb_wineDataTable()
+        Me.tabletb_wine = New tb_wineDataTable(false)
         MyBase.Tables.Add(Me.tabletb_wine)
     End Sub
     
@@ -272,6 +278,12 @@ Partial Public Class ds_wine
         Return type
     End Function
     
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Sub InitExpressions()
+        Me.tb_wine.wineVintageColumn.Expression = "wine + ' ' + vintage"
+    End Sub
+    
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub tb_wineRowChangeEventHandler(ByVal sender As Object, ByVal e As tb_wineRowChangeEvent)
     
@@ -295,13 +307,24 @@ Partial Public Class ds_wine
         
         Private columnurl As Global.System.Data.DataColumn
         
+        Private columnwineVintage As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
+            Me.New(false)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal initExpressions As Boolean)
             MyBase.New
             Me.TableName = "tb_wine"
             Me.BeginInit
             Me.InitClass
+            If (initExpressions = true) Then
+                Me.InitExpressions
+            End If
             Me.EndInit
         End Sub
         
@@ -379,6 +402,14 @@ Partial Public Class ds_wine
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property wineVintageColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnwineVintage
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -415,9 +446,19 @@ Partial Public Class ds_wine
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function Addtb_wineRow(ByVal wine As String, ByVal vintage As Short, ByVal ws_price As Decimal, ByVal purchase_avg As Decimal, ByVal url As String, ByVal wineVintage As String) As tb_wineRow
+            Dim rowtb_wineRow As tb_wineRow = CType(Me.NewRow,tb_wineRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, wine, vintage, ws_price, purchase_avg, url, wineVintage}
+            rowtb_wineRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowtb_wineRow)
+            Return rowtb_wineRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overloads Function Addtb_wineRow(ByVal wine As String, ByVal vintage As Short, ByVal ws_price As Decimal, ByVal purchase_avg As Decimal, ByVal url As String) As tb_wineRow
             Dim rowtb_wineRow As tb_wineRow = CType(Me.NewRow,tb_wineRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, wine, vintage, ws_price, purchase_avg, url}
+            Dim columnValuesArray() As Object = New Object() {Nothing, wine, vintage, ws_price, purchase_avg, url, Nothing}
             rowtb_wineRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtb_wineRow)
             Return rowtb_wineRow
@@ -446,6 +487,7 @@ Partial Public Class ds_wine
             Me.columnws_price = MyBase.Columns("ws price")
             Me.columnpurchase_avg = MyBase.Columns("purchase avg")
             Me.columnurl = MyBase.Columns("url")
+            Me.columnwineVintage = MyBase.Columns("wineVintage")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -463,9 +505,12 @@ Partial Public Class ds_wine
             MyBase.Columns.Add(Me.columnpurchase_avg)
             Me.columnurl = New Global.System.Data.DataColumn("url", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnurl)
+            Me.columnwineVintage = New Global.System.Data.DataColumn("wineVintage", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnwineVintage)
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
+            Me.columnwineVintage.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -485,6 +530,12 @@ Partial Public Class ds_wine
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(tb_wineRow)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitExpressions()
+            Me.wineVintageColumn.Expression = "wine + ' ' + vintage"
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -702,6 +753,21 @@ Partial Public Class ds_wine
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property wineVintage() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletb_wine.wineVintageColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'wineVintage' in table 'tb_wine' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletb_wine.wineVintageColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsidNull() As Boolean
             Return Me.IsNull(Me.tabletb_wine.idColumn)
         End Function
@@ -770,6 +836,18 @@ Partial Public Class ds_wine
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SeturlNull()
             Me(Me.tabletb_wine.urlColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IswineVintageNull() As Boolean
+            Return Me.IsNull(Me.tabletb_wine.wineVintageColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetwineVintageNull()
+            Me(Me.tabletb_wine.wineVintageColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
