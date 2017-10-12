@@ -27,4 +27,13 @@
         Ds_cellar.WriteXml(xml_cellar)
     End Sub
 
+    Private Sub frm_winecellar_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.Validate()
+        Tb_winecellarBindingSource.EndEdit()
+        Tb_wineBindingSource.EndEdit()
+        Tb_cellarBindingSource.EndEdit()
+        Ds_winecellar.WriteXml(xml_winecellar)
+        Ds_wine.WriteXml(xml_wine)
+        Ds_cellar.WriteXml(xml_cellar)
+    End Sub
 End Class

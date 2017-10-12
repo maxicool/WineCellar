@@ -39,6 +39,7 @@ Partial Public Class ds_cellar
         AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
         AddHandler MyBase.Relations.CollectionChanged, schemaChangedHandler
         Me.EndInit
+        Me.InitExpressions
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -50,6 +51,9 @@ Partial Public Class ds_cellar
             Dim schemaChangedHandler1 As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
             AddHandler Me.Tables.CollectionChanged, schemaChangedHandler1
             AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
+            If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.ExcludeSchema) Then
+                Me.InitExpressions
+            End If
             Return
         End If
         Dim strSchema As String = CType(info.GetValue("XmlSchema", GetType(String)),String)
@@ -69,6 +73,7 @@ Partial Public Class ds_cellar
             Me.InitVars
         Else
             Me.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
+            Me.InitExpressions
         End If
         Me.GetSerializationData(info, context)
         Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
@@ -130,6 +135,7 @@ Partial Public Class ds_cellar
     Public Overrides Function Clone() As Global.System.Data.DataSet
         Dim cln As ds_cellar = CType(MyBase.Clone,ds_cellar)
         cln.InitVars
+        cln.InitExpressions
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
     End Function
@@ -204,7 +210,7 @@ Partial Public Class ds_cellar
         Me.Namespace = "http://tempuri.org/ds_cellar.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabletb_cellar = New tb_cellarDataTable()
+        Me.tabletb_cellar = New tb_cellarDataTable(false)
         MyBase.Tables.Add(Me.tabletb_cellar)
     End Sub
     
@@ -272,6 +278,12 @@ Partial Public Class ds_cellar
         Return type
     End Function
     
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Sub InitExpressions()
+        Me.tb_cellar.cellarAreaColumn.Expression = "-id + ' ' + cellar + ' ' + area"
+    End Sub
+    
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub tb_cellarRowChangeEventHandler(ByVal sender As Object, ByVal e As tb_cellarRowChangeEvent)
     
@@ -289,13 +301,24 @@ Partial Public Class ds_cellar
         
         Private columnarea As Global.System.Data.DataColumn
         
+        Private columncellarArea As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
+            Me.New(false)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal initExpressions As Boolean)
             MyBase.New
             Me.TableName = "tb_cellar"
             Me.BeginInit
             Me.InitClass
+            If (initExpressions = true) Then
+                Me.InitExpressions
+            End If
             Me.EndInit
         End Sub
         
@@ -349,6 +372,14 @@ Partial Public Class ds_cellar
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property cellarAreaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncellarArea
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -385,9 +416,19 @@ Partial Public Class ds_cellar
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function Addtb_cellarRow(ByVal cellar As String, ByVal area As String, ByVal cellarArea As String) As tb_cellarRow
+            Dim rowtb_cellarRow As tb_cellarRow = CType(Me.NewRow,tb_cellarRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, cellar, area, cellarArea}
+            rowtb_cellarRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowtb_cellarRow)
+            Return rowtb_cellarRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overloads Function Addtb_cellarRow(ByVal cellar As String, ByVal area As String) As tb_cellarRow
             Dim rowtb_cellarRow As tb_cellarRow = CType(Me.NewRow,tb_cellarRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, cellar, area}
+            Dim columnValuesArray() As Object = New Object() {Nothing, cellar, area, Nothing}
             rowtb_cellarRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtb_cellarRow)
             Return rowtb_cellarRow
@@ -413,6 +454,7 @@ Partial Public Class ds_cellar
             Me.columnid = MyBase.Columns("id")
             Me.columncellar = MyBase.Columns("cellar")
             Me.columnarea = MyBase.Columns("area")
+            Me.columncellarArea = MyBase.Columns("cellarArea")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -424,11 +466,14 @@ Partial Public Class ds_cellar
             MyBase.Columns.Add(Me.columncellar)
             Me.columnarea = New Global.System.Data.DataColumn("area", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnarea)
+            Me.columncellarArea = New Global.System.Data.DataColumn("cellarArea", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncellarArea)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, false))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
             Me.columnid.Unique = true
+            Me.columncellarArea.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -448,6 +493,12 @@ Partial Public Class ds_cellar
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(tb_cellarRow)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitExpressions()
+            Me.cellarAreaColumn.Expression = "-id + ' ' + cellar + ' ' + area"
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -620,6 +671,21 @@ Partial Public Class ds_cellar
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property cellarArea() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletb_cellar.cellarAreaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cellarArea' in table 'tb_cellar' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletb_cellar.cellarAreaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsidNull() As Boolean
             Return Me.IsNull(Me.tabletb_cellar.idColumn)
         End Function
@@ -652,6 +718,18 @@ Partial Public Class ds_cellar
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetareaNull()
             Me(Me.tabletb_cellar.areaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IscellarAreaNull() As Boolean
+            Return Me.IsNull(Me.tabletb_cellar.cellarAreaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetcellarAreaNull()
+            Me(Me.tabletb_cellar.cellarAreaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

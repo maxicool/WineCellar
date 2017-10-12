@@ -281,7 +281,7 @@ Partial Public Class ds_wine
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Sub InitExpressions()
-        Me.tb_wine.wineVintageColumn.Expression = "wine + ' ' + vintage"
+        Me.tb_wine.wineVintageColumn.Expression = "-id + ' ' + wine + ' ' + vintage"
     End Sub
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -534,7 +534,7 @@ Partial Public Class ds_wine
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitExpressions()
-            Me.wineVintageColumn.Expression = "wine + ' ' + vintage"
+            Me.wineVintageColumn.Expression = "-id + ' ' + wine + ' ' + vintage"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

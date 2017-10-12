@@ -12,12 +12,13 @@
   <xs:element name="ds_cellar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cellar" msprop:Generator_UserDSName="ds_cellar">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tb_cellar" msprop:Generator_TableClassName="tb_cellarDataTable" msprop:Generator_TableVarName="tabletb_cellar" msprop:Generator_TablePropName="tb_cellar" msprop:Generator_RowDeletingName="tb_cellarRowDeleting" msprop:Generator_RowChangingName="tb_cellarRowChanging" msprop:Generator_RowEvHandlerName="tb_cellarRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_cellarRowDeleted" msprop:Generator_UserTableName="tb_cellar" msprop:Generator_RowChangedName="tb_cellarRowChanged" msprop:Generator_RowEvArgName="tb_cellarRowChangeEvent" msprop:Generator_RowClassName="tb_cellarRow">
+        <xs:element name="tb_cellar" msprop:Generator_TableClassName="tb_cellarDataTable" msprop:Generator_TableVarName="tabletb_cellar" msprop:Generator_RowChangedName="tb_cellarRowChanged" msprop:Generator_TablePropName="tb_cellar" msprop:Generator_RowDeletingName="tb_cellarRowDeleting" msprop:Generator_RowChangingName="tb_cellarRowChanging" msprop:Generator_RowEvHandlerName="tb_cellarRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_cellarRowDeleted" msprop:Generator_RowClassName="tb_cellarRow" msprop:Generator_UserTableName="tb_cellar" msprop:Generator_RowEvArgName="tb_cellarRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
               <xs:element name="cellar" msprop:Generator_ColumnVarNameInTable="columncellar" msprop:Generator_ColumnPropNameInRow="cellar" msprop:Generator_ColumnPropNameInTable="cellarColumn" msprop:Generator_UserColumnName="cellar" type="xs:string" minOccurs="0" />
               <xs:element name="area" msprop:Generator_ColumnVarNameInTable="columnarea" msprop:Generator_ColumnPropNameInRow="area" msprop:Generator_ColumnPropNameInTable="areaColumn" msprop:Generator_UserColumnName="area" type="xs:string" minOccurs="0" />
+              <xs:element name="cellarArea" msdata:ReadOnly="true" msdata:Expression="-id + ' ' + cellar + ' ' + area" msprop:Generator_ColumnVarNameInTable="columncellarArea" msprop:Generator_ColumnPropNameInRow="cellarArea" msprop:Generator_ColumnPropNameInTable="cellarAreaColumn" msprop:Generator_UserColumnName="cellarArea" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
